@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html lag= "es">
+    <head>
+        <meta charset="utf8">
+        <title>cuadratica."html"</title>
+        <style>
+            h1,
+            h2,
+            h3,
+            div,
+            form {
+            text-align: center;
+            }
+        </style>
+    </head>
+    <script>
+        
+        function procedimiento () {
+            let numa = parseFloat(document.getElementById('a').value);
+            let numb = parseFloat(document.getElementById('b').value);
+            let numc = parseFloat(document.getElementById('c').value);
+        
+            
+            //Solo tiene una solución
+            if ((numb ** 2) === (4 * numa * numc)) {
+                var res=  ((-1 * -numb) + (Math.sqrt((Math.pow(numb, 2) - (4 * numa * numc))))) / (2 * numa); 
+                document.getElementById("resultado").innerHTML = "Solo se tiene una solucion para este caso :  <br>" + res;
+               
+            }
+            //Doble resultado
+            if ((numb ** 2) > (4 * numa * numc)) {
+                console.log("x Tiene 2 soluciones");
+
+                let sol1 = ((-1 * -numb) + (Math.sqrt((Math.pow(numb, 2) - (4 * numa * numc))))) / (2 * numa);;
+                let sol2 = ((-1 * -numb) - ((-1 * -numb) - (Math.sqrt((Math.pow(numb, 2) - (4 *numa * numc))))) / (2 * numa));
+
+                console.log(sol1 +" " + sol2);
+                document.getElementById("resultado").innerHTML = 'sol1:' + sol1  +'<br>'+'sol2:'+ sol2;
+            }
+            //Resultado imaginario
+            if ((numb ** 2) < (4 * numa * numc)) {
+                console.log("la raiz es imaginaria");
+                document.getElementById("resultado").innerHTML = "Su resultado es, numero imaginario ";
+            }
+            
+        }
+    </script>
+
+    <body background="mat2.png" > 
+        <h1>Formula General</h1>
+        
+        <form >
+            <h2>Ingresa el valor de A: </h2>
+            <input type="text" id="a" >
+            <h2>Ingresa el valor de B: </h2>
+            <input type="text" id="b">
+            <h2>Ingresa el valor de C: </h2>
+            <input type="text" id="c"> <br>
+           <br> <input type="button" value="Resultado de ecuacion" onclick="procedimiento()"; >
+
+        </form>
+        
+        <h3 id="resultado"></h3>
+        
+    </body>
+
+</html>
